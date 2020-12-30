@@ -38,12 +38,6 @@ RUN yum updateinfo && \
     yum install -y --enablerepo=codeready-builder-for-rhel-8-x86_64-rpms lttng-ust-devel.x86_64 && \
     yum clean all
 
-# Dependencies of runtime from EPEL (Extra Packages fro Enterprise Linux)
-RUN yum updateinfo && \
-    yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
-    yum install -y libunwind-devel.x86_64 && \
-    yum clean all
-
 # 
 # Define the en_US.UTF-8 locale (without this, processes MSBuild trys to launch complain about
 # being unable to use the en_US.UTF-8 locale which can cause downstream failures if you capture
